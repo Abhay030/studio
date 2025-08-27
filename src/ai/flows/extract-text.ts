@@ -70,7 +70,7 @@ const extractTextFromDocumentFlow = ai.defineFlow(
         pdfParser.parseBuffer(buffer);
       });
       text = pdfData.Pages.map((page: any) =>
-        page.Texts.map((t: any) => decodeURIComponent(t.R[0].T)).join(' ')
+        page.Texts.map((t: any) => decodeURIComponent(t.R[0].T)).join('\n')
       ).join('\n\n');
     } else {
       throw new Error(`Unsupported file type: ${mimeType}`);
