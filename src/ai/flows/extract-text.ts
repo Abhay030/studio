@@ -9,13 +9,13 @@
 
 import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
-import { fromBuffer as pdfFromBuffer } from 'pdf2json';
+import PDFParser from 'pdf2json';
 
 const ExtractTextFromDocumentInputSchema = z.object({
   documentDataUri: z
     .string()
     .describe(
-      "A document (image or PDF), as a data URI that must include a MIME type and use Base64 encoding. Expected format: 'data:<mimetype>;base64,<encoded_data>'."
+      "A document (image or PDF), as a data URI that must include a MIME type and use Base64 encoding. Expected format: 'data:<mimetype>;base64,<encoded_data>'"
     ),
 });
 export type ExtractTextFromDocumentInput = z.infer<typeof ExtractTextFromDocumentInputSchema>;
@@ -63,10 +63,13 @@ const extractTextFromDocumentFlow = ai.defineFlow(
       }
       text = ocrText;
     } else if (mimeType === 'application/pdf') {
-      const pdf = await new Promise<any>((resolve, reject) => {
-        pdfFromBuffer(buffer).then(resolve).catch(reject);
+      const pdfParser = new PDFParser(null, true);
+      const pdfData = await new Promise<any>((resolve, reject) => {
+        pdfParser.on('pdfParser_dataError', (errData: any) => reject(errData.parserError));
+        pdfParser.on('pdfParser_dataReady', resolve);
+        pdfParser.parseBuffer(buffer);
       });
-      text = pdf.Pages.map((page: any) =>
+      text = pdfData.Pages.map((page: any) =>
         page.Texts.map((t: any) => decodeURIComponent(t.R[0].T)).join(' ')
       ).join('\n\n');
     } else {
