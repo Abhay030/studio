@@ -8,8 +8,7 @@ import { Uploader } from "@/components/uploader";
 import { AnalysisView } from "@/components/analysis-view";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useToast } from "@/hooks/use-toast";
-
-const MOCK_EXTRACTED_TEXT = `Welcome to the future of content creation! Our new AI-powered tool is designed to revolutionize your workflow. Are you ready to take your content to the next level? Try it now and see the difference. We believe this will change everything for content creators. Learn more on our website.`;
+import { extractText } from "@/lib/file-extraction";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
@@ -25,10 +24,7 @@ export default function Home() {
     setFileName(file.name);
 
     try {
-      // In a real app, you'd extract text from the file (PDF or OCR for images).
-      // For this demo, we're using mock text and simulating a delay.
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      const extractedText = `// MOCK EXTRACTION FROM: ${file.name}\n\n${MOCK_EXTRACTED_TEXT}`;
+      const extractedText = await extractText(file);
       setOriginalText(extractedText);
 
       const result = await analyzeContent({ content: extractedText });
@@ -38,12 +34,15 @@ export default function Home() {
       }
 
       setAnalysisResult(result);
-    } catch (e) {
+    } catch (e: any) {
       console.error(e);
+      const description = e.message.includes('OCR') 
+        ? "The OCR service may be temporarily unavailable or the image could not be processed. Please try another image."
+        : "The AI service may be temporarily unavailable. Please try again later.";
       toast({
         variant: "destructive",
         title: "Analysis Failed",
-        description: "The AI service may be temporarily unavailable. Please try again later.",
+        description,
       });
       handleReset();
     } finally {
