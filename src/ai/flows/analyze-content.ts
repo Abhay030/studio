@@ -31,8 +31,15 @@ export async function analyzeContent(input: AnalyzeContentInput): Promise<Analyz
 const prompt = ai.definePrompt({
   name: 'analyzeContentPrompt',
   input: {schema: AnalyzeContentInputSchema},
-  output: {schema: AnalyzeContentOutputSchema},
-  prompt: `You are an AI social media expert. Analyze the following content and provide suggestions for improvements in clarity, sentiment, and call-to-actions to increase engagement.\n\nContent: {{{content}}}\n\nHere are your suggestions:\nClarity Suggestions: \n{{{claritySuggestions}}}\n\nSentiment Suggestions:\n{{{sentimentSuggestions}}}\n\nCall to Action Suggestions:\n{{{callToActionSuggestions}}}`,
+  output: {schema: AnalyzeContentOutputSchema, format: 'json'},
+  prompt: `You are an AI social media expert. Analyze the following content and provide suggestions for improvements in clarity, sentiment, and call-to-actions to increase engagement.
+
+Analyze the following content:
+---
+{{{content}}}
+---
+
+Provide your analysis in a structured JSON format. For each of the following keys, provide a string with your suggestions: "claritySuggestions", "sentimentSuggestions", "callToActionSuggestions".`,
 });
 
 const analyzeContentFlow = ai.defineFlow(
@@ -43,6 +50,9 @@ const analyzeContentFlow = ai.defineFlow(
   },
   async input => {
     const {output} = await prompt(input);
-    return output!;
+    if (!output) {
+      throw new Error("The AI model failed to return a valid analysis. Please try again.");
+    }
+    return output;
   }
 );
