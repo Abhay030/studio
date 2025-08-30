@@ -10,7 +10,6 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { useToast } from "@/hooks/use-toast";
 import { extractText } from "@/lib/file-extraction";
 
-
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [originalText, setOriginalText] = useState<string | null>(null);

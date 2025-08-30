@@ -11,7 +11,6 @@ import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
 import PDFParser from 'pdf2json';
 
-
 const ExtractTextFromDocumentInputSchema = z.object({
   documentDataUri: z
     .string()

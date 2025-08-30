@@ -6,8 +6,6 @@ export const metadata: Metadata = {
   title: 'EngageAI | AI Content Analyzer',
   description: 'Analyzes social media posts and suggests engagement improvements.',
 };
-
-
 export default function RootLayout({
   children,
 }: Readonly<{
