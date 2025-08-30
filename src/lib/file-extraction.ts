@@ -16,10 +16,6 @@ function fileToDataUri(file: File): Promise<string> {
   });
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> main
 /**
  * Extracts text from a file by converting it to a data URI and
  * calling the text extraction AI flow.

@@ -3,11 +3,6 @@
 // Inspired by react-hot-toast library
 import * as React from "react"
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> main
 import type {
   ToastActionElement,
   ToastProps,
