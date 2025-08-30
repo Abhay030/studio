@@ -2,7 +2,11 @@
 
 EngageAI is a web application designed to help content creators, social media managers, and marketers enhance their written content. By uploading a document (PDF or image), users can leverage the power of generative AI to receive actionable suggestions for improving clarity, sentiment, and calls to action, ultimately boosting engagement.
 
+<<<<<<< HEAD
 ![EngageAI Screenshot](\studio-main\studio-main\assets\Screenshot 2025-08-31 020134.png)
+=======
+![EngageAI Screenshot](https://storage.googleapis.com/stabl-agent-artefacts/user-project-files/421516a7-6d93-4770-9345-031f501e74a8/engage-ai-screenshot.png)
+>>>>>>> 18c89de808b3e6ea73288ef5c8504f41285bcdef
 
 ## ✨ Features
 
@@ -15,7 +19,13 @@ EngageAI is a web application designed to help content creators, social media ma
 -   **Side-by-Side Comparison:** View your original text and the AI's suggestions in a clear, side-by-side layout.
 -   **Responsive Design:** A clean, modern, and fully responsive user interface built with ShadCN UI and Tailwind CSS.
 
-## 🚀 Tech Stack
+## 🚀 Deployment
+
+The live application is deployed on Vercel and you can access it here:
+
+[**EngageAI Live**](https://social-media-content-analyzer-alpha.vercel.app/)
+
+## 🛠️ Tech Stack
 
 This project is built with a modern, full-stack TypeScript setup:
 
@@ -25,9 +35,10 @@ This project is built with a modern, full-stack TypeScript setup:
 -   **Styling:** [Tailwind CSS](https://tailwindcss.com/)
 -   **Component Library:** [ShadCN UI](https://ui.shadcn.com/)
 -   **Icons:** [Lucide React](https://lucide.dev/guide/packages/lucide-react)
--   **Hosting:** [Firebase App Hosting](https://firebase.google.com/docs/app-hosting)
+-   **Deployment:** [Vercel](https://vercel.com/)
+-   **Hosting:** [Firebase App Hosting](https://firebase.google.com/docs/app-hosting) (for Genkit backend)
 
-## 🛠️ Getting Started
+## 📄 Getting Started
 
 Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
 
@@ -72,9 +83,9 @@ Follow these instructions to get a copy of the project up and running on your lo
         ```
         This starts the Genkit developer UI on [http://localhost:4000](http://localhost:4000) and makes the AI flows available to the frontend.
 
-## 📄 How to Use
+## 💡 How to Use
 
-1.  Navigate to [http://localhost:9002](http://localhost:9002).
+1.  Navigate to the deployed app or your local instance ([http://localhost:9002](http://localhost:9002)).
 2.  Drag and drop a file into the upload area, or click "Or browse files" to select a document from your computer.
 3.  The application will automatically extract the text and analyze it.
 4.  Once the analysis is complete, you will see your original content on the left and the AI-generated suggestions for clarity, sentiment, and call to action on the right.
