@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/sidebar";
 import Logo from "./logo";
 
+
 export function AppLayout({ children }: { children: ReactNode }) {
   return (
     <SidebarProvider>
@@ -28,7 +29,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
         <SidebarContent>
           <SidebarMenu>
             <SidebarMenuItem>
-              <SidebarMenuButton href="#" isActive tooltip="Content Analyzer">
+              <SidebarMenuButton isActive tooltip="Content Analyzer">
                 <Home />
                 <span className="group-data-[collapsible=icon]:hidden">Analyzer</span>
               </SidebarMenuButton>

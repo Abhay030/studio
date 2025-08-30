@@ -28,6 +28,7 @@ export async function analyzeContent(input: AnalyzeContentInput): Promise<Analyz
   return analyzeContentFlow(input);
 }
 
+
 const prompt = ai.definePrompt({
   name: 'analyzeContentPrompt',
   input: {schema: AnalyzeContentInputSchema},

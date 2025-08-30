@@ -11,6 +11,7 @@
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
+
 const GenerateEngagementSuggestionsInputSchema = z.object({
   content: z.string().describe('The social media content to analyze.'),
 });

@@ -1,6 +1,7 @@
 import type { SVGProps } from "react";
 import { cn } from "@/lib/utils";
 
+
 export default function Logo(props: SVGProps<SVGSVGElement>) {
   return (
     <div className={cn("relative flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10", props.className)}>
