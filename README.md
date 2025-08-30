@@ -2,8 +2,11 @@
 
 EngageAI is a web application designed to help content creators, social media managers, and marketers enhance their written content. By uploading a document (PDF or image), users can leverage the power of generative AI to receive actionable suggestions for improving clarity, sentiment, and calls to action, ultimately boosting engagement.
 
-![EngageAI Screenshot]()
-![EngageAI Screenshot]()
+## Home Page
+![EngageAI Screenshot](https://github.com/Abhay030/studio/blob/main/assets/Screenshot%202025-08-31%20020134.png)
+
+## Analysis Page
+![EngageAI Screenshot](https://github.com/Abhay030/studio/blob/main/assets/Screenshot%202025-08-31%20020347.png)
 
 
 ## ✨ Features
