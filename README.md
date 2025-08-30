@@ -5,7 +5,7 @@ EngageAI is a web application designed to help content creators, social media ma
 <<<<<<< HEAD
 ![EngageAI Screenshot](\studio-main\studio-main\assets\Screenshot 2025-08-31 020134.png)
 =======
-![EngageAI Screenshot](https://storage.googleapis.com/stabl-agent-artefacts/user-project-files/421516a7-6d93-4770-9345-031f501e74a8/engage-ai-screenshot.png)
+![EngageAI Screenshot]()
 >>>>>>> 18c89de808b3e6ea73288ef5c8504f41285bcdef
 
 ## ✨ Features
